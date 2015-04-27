@@ -1,8 +1,8 @@
 clc;
-Sensor_Num=50;
+Sensor_Num=3;
 Room_Size=50;
 Sensor_Loc=Room_Size*abs(rand(Sensor_Num,2));
-R = 10;%声音传播距离
+R = 30;%声音传播距离
 
 %下面生成room周围的八个同样大小的空间，并随机分布同样多的虚拟传感器节点
 Sensor_Left=Room_Size*abs(rand(Sensor_Num,2));
@@ -42,5 +42,8 @@ axis equal
 hold on
 Dis_To_Sensor=sqrt((All_Sensor(:,1)-Speaker_Loc(1,1)).^2+(All_Sensor(:,2)-Speaker_Loc(1,2)).^2);
 
-[xx,yy]=localization(All_Sensor(:,1),All_Sensor(:,2),Room_Size,Sensor_Num,Dis_To_Sensor,Speaker_Loc);
-disp(sprintf('真实位置(%f,%f)，估算位置(%f,%f)\n',Speaker_Loc(1,1),Speaker_Loc(1,2),xx,yy));
+[estimated_location(1,1) estimated_location(1,2) ]=localization(All_Sensor(:,1),All_Sensor(:,2),Room_Size,Sensor_Num,Dis_To_Sensor,Speaker_Loc);
+disp(sprintf('真实位置(%f,%f)，估算位置(%f,%f)\n',Speaker_Loc(1,1),Speaker_Loc(1,2),estimated_location(1,1),estimated_location(1,2)));
+
+ D_Error = sqrt((estimated_location(1,1)-Speaker_Loc(1,1)).^2+(estimated_location(1,2)-Speaker_Loc(1,2)).^2) 
+

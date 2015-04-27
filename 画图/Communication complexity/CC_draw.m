@@ -5,10 +5,10 @@ y(i)=RBS(i);
 y1(i)=VASL(i);
 end
 
-plot(x,y,'-',x,y1,':') 
+plot(x,y,'g-',x,y1,'b:','linewidth',1.5) 
 xlabel('The number of nodes')
 ylabel('The number of transmission data ')
-% legend('RBS','VASL');
-text(50,2500,'\rightarrow RBS')
-text(70,895,'  VASL \rightarrow ')
+legend('RBS','VASL');
+% text(50,2500,'\rightarrow RBS')
+% text(70,895,'  VASL \rightarrow ')
 hold on 
