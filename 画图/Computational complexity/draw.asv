@@ -12,33 +12,25 @@ end
 for i =1:25
 y3(i)= (0.43*x1(i)*0.43*(x1(i)-1));
 end
-for i =25:30
-y3(i)= (0.43*x1(25)*0.43*(x1(25)-1))+rand(1)*10;
+for i =25:50
+y3(i)= (0.43*x1(25)*0.43*(x1(25)-1))+;
 end
-for i =30:40
-y3(i)= (0.43*x1(28)*0.43*(x1(28)-1))+rand(1)*10;
-end
-for i =40:45
-y3(i)= (0.43*x1(29)*0.43*(x1(31)-1))+rand(1)*10;
-end
-for i =45:50
-y3(i)= (0.43*x1(27)*0.43*(x1(26)-1))+rand(1)*10;
-end
+
 % xlabel('The number of nodes')
 % ylabel('The number of transmission data ')
 figure(1)
 
 [AX,h1,h2]=plotyy(x,y1,x,y4);    %返回左侧和右侧坐标轴句柄
 
-set(h1,'linestyle','-','marker','s','color','k','LineWidth',1.3);%设置线型
-set(h2,'linestyle','-','marker','d','color','k','LineWidth',1.3);%设置线型
+set(h1,'linestyle','-','marker','o','color','k','LineWidth',1.3);%设置线型
+set(h2,'linestyle','-','marker','h','color','k','LineWidth',1.3);%设置线型
 
 ylim(AX(1),[0,10]) ;           %设置右侧y坐标轴的范围为[0,200]
 ylim(AX(2),[0,10]);            %设置左侧y坐标轴的范围为[0,200]
 set(AX(1),'XColor','k','YColor','k');%设置坐标轴颜色
 set(AX(2),'XColor','k','YColor','k');
 legend([h1,h2],'OC ','VASL ');
-set(get(AX(1),'Ylabel'),'String','The average localization error')
+set(get(AX(1),'Ylabel'),'String','The average Localization error')
 
 xlabel('The number of cutting nodes ')
 
@@ -49,8 +41,8 @@ ylim(BX(1),[0,1500]) ;           %设置右侧y坐标轴的范围为[0,200]
 ylim(BX(2),[0,1500]);            %设置左侧y坐标轴的范围为[0,200]
 % set(h3,'linestyle','-','marker','*','color','b','LineWidth',1.3);%设置线型
 % set(h4,'linestyle',':','marker','+','color','b','LineWidth',1.3);%设置线型
-set(h3,'linestyle','-','marker','s','color','k','LineWidth',1.3,'MarkerSize',5);%设置线型
-set(h4,'linestyle','-','marker','d','color','k','LineWidth',1.3);%设置线型
+set(h3,'linestyle','-','marker','o','color','k','LineWidth',1.3,'MarkerSize',5);%设置线型
+set(h4,'linestyle','-','marker','h','color','k','LineWidth',1.3);%设置线型
 set(BX(1),'XColor','k','YColor','k');
 set(BX(2),'XColor','k','YColor','k');
 legend([h3,h4],'OC ','VASL ');
