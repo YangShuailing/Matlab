@@ -1,17 +1,19 @@
 clc;
+clear;
 Room_Size = [100 100];%空间大小，单位（米）
-Test_Times=20;%仿真定位次数
+Test_Times=1;%仿真定位次数
 Err_NodeLoc=0;%节点位置误差
 Err_Measure=0;%测量误差
 Point_Step=1;
 
-Sensor_Num =3;%声音接收传感器个数
+Err_ave=[];%平均误差
+for Sensor_Num = 1:50;%声音接收传感器个数
 %随机生成麦克风位置
+index  = 1 ;
 Sensor_Loc = [Room_Size(1,1)*abs(rand(Sensor_Num,1)) Room_Size(1,2)*abs(rand(Sensor_Num,1))];
 
 % %加入节点位置误差
 Err=[];
-Err_ave=[];%平均误差
 Sensor_Loc_Real = Sensor_Loc+(rand(size(Sensor_Loc))-0.5)*2*Err_NodeLoc;
 
 %在图中画出麦克风节点位置
@@ -108,11 +110,16 @@ Sensor_Loc_Real = Sensor_Loc+(rand(size(Sensor_Loc))-0.5)*2*Err_NodeLoc;
 
 	Err=[Err D_Error] ;
    
-   
- end  
-    
-      Err_mean=mean(Err)  
-  
  
-save Loc_Result_Cut.mat Err_ave Sensor_for_Loc;
+ end  
+ 
+ Err_mean=mean(Err);
+      Err_ave=[Err_ave  Err_mean];
+      
+      
+      
+     
+end
+ Err_ave
+save Loc_Result_Cut.mat Err_ave  ;
 
